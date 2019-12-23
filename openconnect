@@ -1,0 +1,8 @@
+---
+tags: [ vpn ]
+---
+# start a vpn session:
+openconnect -b --pid-file=/var/run/openconnect --protocol=anyconnect --authgroup=<group> --user=<user> --passwd-on-stdin <vpn-url>
+
+# stop vpn
+sudo kill -SIGINT $(cat /var/run/openconnect)
