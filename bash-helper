@@ -1,0 +1,15 @@
+---
+tags: [ bash-helper ]
+---
+# This will increment symantic version numbering by position.
+inc_version() {
+	awk -F. -vOFS=. '{ $ver++; while(ver++<NF) $ver=0; print $0 }' ver=$1
+}
+
+# Get latest release from git
+download_latest_asset(){ 
+  repo=$1
+  assetName=$2
+  jq_query=".assets[] | select(.name | match(\"${assetName}\")) | .browser_download_url"
+  curl -s https://api.github.com/repos/${repo}/releases/latest | jq -r "$jq_query" | wget -i -
+}
