@@ -1,0 +1,5 @@
+---
+tags: [ ssh, consul ]
+---
+# Add all nodes registed on consul to ssh config
+ssh <known-node> "consul catalog nodes" | awk '{ print "Host " $1 "\n\tHostname " $2 }' > $HOME/.ssh/config.d/consul-hosts
