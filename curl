@@ -1,0 +1,40 @@
+# Download a file and specify a new filename
+curl http://example.com/file.zip -o new_file.zip
+
+# Download all sequentially numbered files (1-24)
+curl http://example.com/pic[1-24].jpg
+
+# Use windows credentials 
+curl -u : --proxy-ntlm ...
+
+## Options
+
+# fail silently (for scripting)
+curl -f ...
+ 
+# don't print progress bar
+curl -s ...
+
+# Print errors when in silent mode
+curl -S ...
+
+# Follow redirects 
+curl -L ...
+
+# Ignore certificate verification
+curl -k ...
+
+# Output to file
+curl -o ...
+
+# Specify method
+curl -X <POST|PUT|GET|DELETE> ...
+
+# Send data
+curl -d <data> ...
+
+# Send header
+curl -H <data> ...
+
+# Send data from file
+curl -d @file.json ...
